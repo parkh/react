@@ -20,3 +20,10 @@ So, let's go!
 - React never reads from the “real” DOM
 - React only writes to the real DOM if needed
 - React efficiently handles DOM updates
+
+## What is JSX?
+
+- JSX stands for JavaScript as XML
+- It allows us to use a very XML-like syntax in our JavaScript
+- JSX syntax needs to be converted to plain JavaScript before it will run in the browser
+- Tool for this called [Babel](https://babeljs.io)
