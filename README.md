@@ -18,7 +18,7 @@ So, let's go!
 - JS objects are faster than DOM objects
 - The React virtual DOM is a JS object
 - React never reads from the “real” DOM
-- React only writes to the real DOM if needed
+- React **only writes** to the real DOM if needed
 - React efficiently handles DOM updates
 
 ## What is JSX?
