@@ -78,3 +78,40 @@ So, let's go!
 - Simple JSON objects
 - Triggering the State change
 - Uniform across browsers and consistent with [W3C Spec](https://www.w3.org/TR/DOM-Level-3-Events/), thanks to SyntheticEvent (wrapper for browser's event object passed into event function)
+
+## Component Lifecycle
+
+Lifecycle methods firing top down before render and bottom up after.
+
+- Mounting
+  - `componentWillMount`
+    - invoked once, both on the client and server
+    - immediatly before rendering
+    - `this.setState()` not triggering additional render
+  - `componentDidMount`
+    - invoked once, only on the client
+    - immediatly after rendering
+    - integrating with other JS frameworks, setting timers using `setTimeout` or `setInterval`, or sending AJAX requests meant to be done here
+- Updating
+  - `componentWillReceiveProps` _(nextProps)_
+    - invoked every time when a component is receiving new props
+    - is not called for the initial render
+    - an opportunity to react to a prop transition before `render()` is called by updating the state using `this.setState()`
+    - `this.props` - old props
+    - `this.setState()` not triggering additional render
+  - `shouldComponentUpdate` _(nextProps, nextState)_
+    - be default always returns `true`
+    - returning `false` will skip the render
+    - used to speed up the app
+  - `componentWillUpdate` _(nextProps, nextState)_
+    - invoked immediately before rendering when new props or state are being received
+    - is not called for the initial render
+    - an opportunity to perform preparation before an update occurs
+    - `this.setState()` cannot be used here
+  - `componentDidUpdate` _(nextProps, nextState)_
+    - invoked immediately after the component's updates are flushed to the DOM
+    - is not called for the initial render
+    - an opportunity to operate on the DOM when the component has been updated
+  - `componentWillUnmount`
+    - invoked immediately before a component is unmounted from the DOM
+    - any necessary cleanup in this method, such as invalidating timers or cleaning up any DOM elements that were created in `componentDidMount` meant to be done here
