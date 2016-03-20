@@ -22,12 +22,15 @@ So, let's go!
 - ReactJS **only writes** to the real DOM if needed
 - ReactJS efficiently handles DOM updates
 
-## What is JSX?
+## JSX (JavaScript as XML)
 
-- JSX stands for JavaScript as XML
-- It allows us to use a very XML-like syntax in our JavaScript
-- JSX syntax needs to be converted to plain JavaScript before it will run in the browser
-- Tool for this called [Babel](https://babeljs.io)
+- is optional, XML-styled syntax for use in JS
+- is **NOT HTML**, it's **XML**
+- transpiled to plain JS by [Babel](https://babeljs.io)
+- lower-case for HTML tags, CapitalCase for ReactJS Components, camelCase for HTML attributes
+- avoids JS keywords like `class`, uses `className` instead
+- style is a JSON object
+- transpilers: [HTML->JSX](https://facebook.github.io/react/html-jsx.html), [JSX->JS](http://babeljs.io/repl/)
 
 ## Rendering
 
@@ -62,10 +65,16 @@ So, let's go!
 ### Props vs State
 
 |                     --                     |props|state|
-|:------------------------------------------:|:---:|:---:|
+|:-------------------------------------------|:---:|:---:|
 |Can get initial value from parent Component?|  +  |  +  |
 |Can be changed by parent Component?         |  +  |  -  |
 |Can set default values inside Component?    |  +  |  +  |
 |Can change inside Component?                |  -  |  +  |
 |Can set initial value for child Components? |  +  |  +  |
 |Can change in child Components?             |  +  |  -  |
+
+### Events
+
+- Simple JSON objects
+- Triggering the State change
+- Uniform across browsers and consistent with [W3C Spec](https://www.w3.org/TR/DOM-Level-3-Events/), thanks to SyntheticEvent (wrapper for browser's event object passed into event function)
