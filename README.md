@@ -41,7 +41,7 @@ So, let's go!
 
 ## ReactJS Component 
 
-- Returns ReactElement(s) via render method
+- Returns ReactElement(s) via `render` method
 - Complex and reusable, empower *declarative*, as opposed to *imperative* programming
 - Take advantage of JS with **Props**, **State** and **Events**
 
@@ -51,3 +51,21 @@ So, let's go!
 - Accessible via `this.props`
 - Allows for dynamic rendering of data when re-using components
 - Are **IMMUTABLE**, never write to `this.props`
+
+### State
+
+- Is optional
+- Representing mutable :) properties that affect final rendered output
+- `getInitialState` - set the initial values of component's state
+- `setState` - update the state, informing ReactJS to render to the virtual DOM
+
+### Props vs State
+
+|                     --                     |props|state|
+|:------------------------------------------:|:---:|:---:|
+|Can get initial value from parent Component?|  +  |  +  |
+|Can be changed by parent Component?         |  +  |  -  |
+|Can set default values inside Component?    |  +  |  +  |
+|Can change inside Component?                |  -  |  +  |
+|Can set initial value for child Components? |  +  |  +  |
+|Can change in child Components?             |  +  |  -  |

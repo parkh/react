@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Learning React</title>
+  <script src="https://fb.me/react-0.14.7.min.js"
+          integrity="sha384-zTm/dblzLXQNp3CgY+hfaC/WJ6h4XtNrePh2CW2+rO9GPuNiPb9jmthvAL+oI/dQ"
+          crossorigin="anonymous"></script>
+  <script src="https://fb.me/react-dom-0.14.7.min.js"
+          integrity="sha384-ntqCsHbLdMxT352UbhPbT7fqjE8xi4jLmQYQa8mYR+ylAapbXRfdsDweueDObf7m"
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+</head>
+<body>
+  <div id="container"></div>
+
+  <script type="text/babel">
+    var ClickCounter = React.createClass({
+      getInitialState: function() {
+        return {
+          count: 0
+        };
+      },
+
+      increment: function() {
+        this.setState({
+          count: this.state.count + 1
+        });
+      },
+
+      render: function() {
+        return (
+          <button onClick={this.increment}>I've been clicked {this.state.count} times!</button>
+        );
+      }
+    });
+
+    React.render(
+      <ClickCounter />,
+      document.getElementById('container')
+    );
+  </script>
+</body>
+</html>
