@@ -12,16 +12,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
 </head>
 <body>
+  <div id="react-container"></div>
+
   <script type="text/babel">
-    var HelloWorld = React.createClass({
+    var Hello = React.createClass({
       render: function() {
-        return <div>
-          <h1>Hello World</h1>
-          <p>Some text</p>
-        </div>
+        return <div>Hello, {this.props.name}!</div>;
       }
     });
-    React.render(<HelloWorld />, document.body)
+
+    React.render(
+      <Hello name="Dan" />,
+      document.getElementById('react-container')
+    );
   </script>
 </body>
 </html>

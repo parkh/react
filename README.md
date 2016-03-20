@@ -9,6 +9,7 @@ So, let's go!
 
 - Open sourse projected, maintained by Facebook
 - Can be the "V" in MVC
+- Narrow in scope, tightly focused
 - Ideal for large-scale, single page application (SPA)
 - Uses high-speed virtual DOM
 - Uses clean and easy-to-understand JSX syntax
