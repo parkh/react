@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Learning React</title>
+  <script src="https://fb.me/react-0.14.7.min.js"
+          integrity="sha384-zTm/dblzLXQNp3CgY+hfaC/WJ6h4XtNrePh2CW2+rO9GPuNiPb9jmthvAL+oI/dQ"
+          crossorigin="anonymous"></script>
+  <script src="https://fb.me/react-dom-0.14.7.min.js"
+          integrity="sha384-ntqCsHbLdMxT352UbhPbT7fqjE8xi4jLmQYQa8mYR+ylAapbXRfdsDweueDObf7m"
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+</head>
+<body>
+  <div id="container"></div>
+
+  <script type="text/babel">
+    var myItems = {
+      items: [
+        'Andy',
+        'Babe',
+        'Cat',
+        'Dog',
+        'East',
+        'Fandom',
+        'Glory',
+        'Helicopter',
+        'Kyle',
+        'Lynda'
+      ]
+    };
+
+    var FilteredList = React.createClass({
+      getInitialState: function() {
+        return { items: [] }
+      },
+
+      componentWillMount: function() {
+        this.setState({ items: this.props.initialItems.items })
+      },
+
+      filterList: function(event) {
+        var updatedList = this.props.initialItems.items;
+
+        updatedList = updatedList.filter(function(item) {
+          return item.toLowerCase().search(
+            event.target.value.toLowerCase()) !== -1;
+        });
+
+        this.setState({ items: updatedList });
+      },
+
+      render: function() {
+        return (
+          <div className="myList">
+            <input onChange={this.filterList} type="text" placeholder="Search" />
+            <List items={this.state.items} />
+          </div>
+        );
+      }
+    });
+
+    var List = React.createClass({
+      render: function() {
+        return (
+          <ul>
+            {
+              this.props.items.map(function(item) {
+                return <li key={item}>{item}</li>
+              })
+            }
+          </ul>
+        )
+      }
+    });
+
+    React.render(
+      <FilteredList initialItems={myItems} />,
+      document.getElementById('container')
+    );
+  </script>
+</body>
+</html>
